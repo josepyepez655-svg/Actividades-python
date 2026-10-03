@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Multiplicar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+</head>
+<body>
+
+    <div class="Tarjeta">
+        
+        <!-- Header con la imagen de la calculadora -->
+        <div class="header-box">
+            <h1>Tablas de Multiplicar</h1>
+            <p class="subtitle">Ingresa un número para generar su tabla</p>
+        </div>
+
+        <!-- Formulario -->
+        <form method="POST" class="form-multiplicar">
+            <input type="number" 
+                   name="numero1" 
+                   placeholder="Ej: 8" 
+                   required 
+                   class="input-numero">
+            <button type="submit" class="btn-generar">Generar</button>
+        </form>
+
+        <!-- Resultados -->
+        {% if tabla %}
+            <div class="results-box">
+                <div class="results-header">
+                    <h2>Tabla del <span class="num-highlight">{{ numero }}</span></h2>
+                    <span class="tag-range">1 al 10</span>
+                </div>
+
+                <ul class="tabla-list">
+                    {% for linea in tabla %}
+                        <li class="tabla-item">
+                            <span class="operacion">{{ linea.split('=')[0] }}</span>
+                            <span class="resultado">= {{ linea.split('=')[1] }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

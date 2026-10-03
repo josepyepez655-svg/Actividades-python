@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Adivina</title>
+    <!-- Vinculación del archivo CSS externo -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>[ PROTOCOLO ADIVINA ]</h1>
+        
+        <div class="console-box">
+            {{ session.get('mensaje', 'Iniciando...') }}
+        </div>
+
+        {% if not session.get('ganado') %}
+        <form method="POST">
+            <input type="number" name="numero" placeholder="Ingresa número (1-100)" required min="1" max="100" autofocus>
+            <button type="submit">PROBAR CÓDIGO</button>
+        </form>
+        {% endif %}
+
+        {% if session.get('intentos', 0) > 0 %}
+        <div class="stats">
+            INTENTOS REALIZADOS: {{ session.get('intentos') }}
+        </div>
+        <form method="POST">
+            <button type="submit" name="reiniciar" class="restart-btn">REINICIAR SISTEMA</button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+</html>

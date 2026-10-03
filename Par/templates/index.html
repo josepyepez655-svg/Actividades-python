@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros pares</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+    
+</head>
+<body>
+     <div  class="Contenedor">
+  
+   
+   
+    <div class="Tarjeta">
+   
+         <h1> ¿Cuando un numero es par o impar?</h1>
+           <br>
+           <h2>Bienvenido {{ usuario_actual }}</h2>
+           <br>
+       
+        <h3>Un número es par cuando es divisible entre 2 de manera exacta <br>
+             es decir, el residuo de la división es cero <br>  Son todos los múltiplos enteros de 2 por ejemplo 4, 6, 8, 10 entre muchos mas . </h3>
+        <form method="POST">
+            <label for="numero">Ingresa un número:</label> <br>
+            <input type="number" id="numero" name="definir" required maxlength="10">
+            <button type="submit">Enviar</button>
+        </form>
+
+        {% if resultado %}
+            <p style="color: green; margin-top: 20px;">
+                ¡El número que enviaste ({{ numero }}) es: <strong>{{ resultado }}</strong>!
+            </p>
+        {% endif %}
+
+        <hr style="margin: 20px 0;">
+        <h3>Historial guardado en PostgreSQL:</h3>
+        <ul>
+            {% for item in historial %}
+                <!-- item[0] es el número, item[1] es PAR/IMPAR -->
+                <li>El número <strong>{{ item[0] }}</strong> es {{ item[1] }}</li>
+            {% else %}
+                <li>No hay datos guardados aún.</li>
+            {% endfor %}
+        </ul>
+        <form method="POST">
+            <label for="numero">BORRAR DATOS </label> <br>
+            <button type="submit" id="numero" name="Borrar">Borrar datos</button>
+        </form>
+    </div>
+    </div> 
+</body>
+</html>

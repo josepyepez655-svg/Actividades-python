@@ -1,0 +1,196 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: #12131C; /* Fondo oscuro tipo la imagen */
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Tarjeta contenedora principal */
+.Tarjeta {
+    background-color: #1A1C29;
+    border: 4px solid #30364F;
+    border-radius: 24px;
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* Encabezado e Imagen */
+.header-box {
+    margin-bottom: 25px;
+}
+
+.hero-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+h1 {
+    color: #62D8F6; /* Azul cyan del cuerpo de la calculadora */
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    color: #8C94B0;
+    font-size: 0.88rem;
+    margin-top: 4px;
+}
+
+/* Formulario de entrada */
+.form-multiplicar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-numero {
+    flex: 1;
+    background-color: #12131C;
+    border: 2px solid #30364F;
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: #F3E293; /* Amarillo del número 3 */
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.input-numero::placeholder {
+    color: #555E7B;
+    font-weight: 400;
+}
+
+.input-numero:focus {
+    outline: none;
+    border-color: #62D8F6;
+}
+
+.btn-generar {
+    background-color: #F29432; /* Naranja del símbolo + */
+    color: #12131C;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(242, 148, 50, 0.2);
+}
+
+.btn-generar:hover {
+    background-color: #E08122;
+    transform: translateY(-2px);
+}
+
+.btn-generar:active {
+    transform: translateY(0);
+}
+
+/* Sección de Resultados */
+.results-box {
+    border-top: 2px dashed #30364F;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+h2 {
+    color: #E597B9; /* Rosa del símbolo % */
+    font-size: 1.2rem;
+}
+
+.num-highlight {
+    color: #F3E293;
+    font-size: 1.4rem;
+    text-decoration: underline;
+}
+
+.tag-range {
+    background-color: #30364F;
+    color: #62D8F6;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+/* Lista de multiplicaciones */
+.tabla-list {
+    list-style: none;
+    max-height: 240px;
+    overflow-y: auto;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Scrollbar personalizada */
+.tabla-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tabla-list::-webkit-scrollbar-thumb {
+    background: #30364F;
+    border-radius: 10px;
+}
+
+.tabla-item {
+    background-color: #12131C;
+    border: 1px solid #2B3046;
+    border-radius: 10px;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #D1D5DB;
+    transition: border-color 0.2s ease;
+}
+
+.tabla-item:hover {
+    border-color: #62D8F6;
+}
+
+.operacion {
+    letter-spacing: 1px;
+}
+
+.resultado {
+    color: #62D8F6;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
